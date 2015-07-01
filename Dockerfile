@@ -4,6 +4,7 @@ FROM	debian:stable
 
 ENV FF 38.0.5
 ENV EXTDIR /home/docker/.mozilla/extensions
+ENV FLASHVER 11.2.202.468
 
 # make sure the package repository is up to date
 # and blindly upgrade all packages
@@ -31,7 +32,7 @@ RUN chown -R docker:docker /home/docker/.ssh
 # grab the latest firefox, flash and privacytools.io encouraged plugins
 WORKDIR /home/docker
 RUN wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/${FF}/linux-x86_64/en-US/firefox-${FF}.tar.bz2
-RUN wget https://fpdownload.adobe.com/get/flashplayer/pdc/11.2.202.466/install_flash_player_11_linux.x86_64.tar.gz
+RUN wget https://fpdownload.adobe.com/get/flashplayer/pdc/${FLASHVER}/install_flash_player_11_linux.x86_64.tar.gz
 
 # install addons globally
 WORKDIR /home/docker
