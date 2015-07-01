@@ -53,29 +53,29 @@ cp libflashplayer.so /home/docker/.mozilla/plugins
 RUN tar xvf firefox-${FF}.tar.bz2;
 
 # install addons globally
-WORKDIR /home/docker
-RUN mkdir -p ${EXTDIR}/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}
-RUN mkdir /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+#WORKDIR /home/docker
+#RUN mkdir -p ${EXTDIR}/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+#RUN mkdir -p /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 # random agent spoofer
-RUN wget https://addons.mozilla.org/firefox/downloads/latest/473878/addon-473878-latest.xpi
-RUN mkdir {ec8030f7-c20a-464f-9b0e-13a3a9e97384}/jid1-AVgCeF1zoVzMjA@jetpack
-RUN unzip addon-473878-latest.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/jid1-AVgCeF1zoVzMjA@jetpack
+#RUN wget https://addons.mozilla.org/firefox/downloads/latest/473878/addon-473878-latest.xpi
+#RUN mkdir -p ${EXTDIR}/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/jid1-AVgCeF1zoVzMjA@jetpack
+#RUN unzip addon-473878-latest.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/jid1-AVgCeF1zoVzMjA@jetpack
 # disconnect
-RUN wget https://addons.mozilla.org/firefox/downloads/latest/464050/addon-464050-latest.xpi
-RUN mkdir ${EXTDIR}/2.0@disconnect.me
-RUN unzip addon-464050-latest.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/2.0@disconnect.me
+#RUN wget https://addons.mozilla.org/firefox/downloads/latest/464050/addon-464050-latest.xpi
+#RUN mkdir ${EXTDIR}/2.0@disconnect.me
+#RUN unzip addon-464050-latest.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/2.0@disconnect.me
 # ublock
-RUN wget https://addons.mozilla.org/firefox/downloads/file/319372/ublock_origin-0.9.8.2-an+sm+fx.xpi
-RUN mkdir ${EXTDIR}/uBlock0@raymondhill.net
-RUN unzip ublock_origin-0.9.8.2-an+sm+fx.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/uBlock0@raymondhill.net
+#RUN wget https://addons.mozilla.org/firefox/downloads/file/319372/ublock_origin-0.9.8.2-an+sm+fx.xpi
+#RUN mkdir ${EXTDIR}/uBlock0@raymondhill.net
+#RUN unzip ublock_origin-0.9.8.2-an+sm+fx.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/uBlock0@raymondhill.net
 # httpd everywhere
-RUN wget https://www.eff.org/files/https-everywhere-latest.xpi
-RUN mkdir ${EXTDIR}/https-everywhere@eff.org
-RUN unzip https-everywhere-latest.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/https-everywhere@eff.org
+#RUN wget https://www.eff.org/files/https-everywhere-latest.xpi
+#RUN mkdir ${EXTDIR}/https-everywhere@eff.org
+#RUN unzip https-everywhere-latest.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/https-everywhere@eff.org
 # privacy badger
-RUN wget https://s.eff.org/files/privacy-badger-latest.xpi
-RUN mkdir ${EXTDIR}/jid1-MnnxcxisBPnSXQ@jetpack
-unzip privacy-badger-latest.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/jid1-MnnxcxisBPnSXQ@jetpack
+#RUN wget https://s.eff.org/files/privacy-badger-latest.xpi
+#RUN mkdir ${EXTDIR}/jid1-MnnxcxisBPnSXQ@jetpack
+#unzip privacy-badger-latest.xpi -d /home/docker/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/jid1-MnnxcxisBPnSXQ@jetpack
 
 # Create OpenSSH privilege separation directory, enable X11Forwarding
 RUN mkdir -p /var/run/sshd
