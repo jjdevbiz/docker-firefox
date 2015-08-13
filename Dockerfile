@@ -2,11 +2,11 @@
 
 FROM	debian:stable
 
-ENV FF 39.0
+ENV FF 40.0
 ENV EXTDIR /home/docker/.mozilla/extensions
 ENV FLASHVER 11.2.202.481
 #https://download-installer.cdn.mozilla.net/pub/firefox/releases/39.0/linux-x86_64/en-US/firefox-39.0.tar.bz2
-https://fpdownload.adobe.com/get/flashplayer/pdc/11.2.202.468/install_flash_player_11_linux.x86_64.tar.gz
+#https://fpdownload.adobe.com/get/flashplayer/pdc/11.2.202.468/install_flash_player_11_linux.x86_64.tar.gz
 #https://fpdownload.adobe.com/get/flashplayer/pdc/11.2.202.481/install_flash_player_11_linux.x86_64.tar.gz
 
 # make sure the package repository is up to date
@@ -45,12 +45,13 @@ RUN wget https://addons.mozilla.org/firefox/downloads/latest/473878/addon-473878
 RUN wget https://www.eff.org/files/https-everywhere-latest.xpi
 RUN wget https://s.eff.org/files/privacy-badger-latest.xpi
 
+# !! Removed flash from build, because its a POS that needs to be retired from use !!
 # install flash
-RUN \
-tar xvf install_flash_player_11_linux.x86_64.tar.gz && \
-cp -av usr / && \
-mkdir -p /home/docker/.mozilla/plugins && \
-cp libflashplayer.so /home/docker/.mozilla/plugins
+#RUN \
+#tar xvf install_flash_player_11_linux.x86_64.tar.gz && \
+#cp -av usr / && \
+#mkdir -p /home/docker/.mozilla/plugins && \
+#cp libflashplayer.so /home/docker/.mozilla/plugins
 
 # get firefox setup
 RUN tar xvf firefox-${FF}.tar.bz2;
