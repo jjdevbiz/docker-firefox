@@ -2,12 +2,8 @@
 
 FROM	debian:stable
 
-ENV FF 40.0
+ENV FF 40.0.3
 ENV EXTDIR /home/docker/.mozilla/extensions
-ENV FLASHVER 11.2.202.481
-#https://download-installer.cdn.mozilla.net/pub/firefox/releases/39.0/linux-x86_64/en-US/firefox-39.0.tar.bz2
-#https://fpdownload.adobe.com/get/flashplayer/pdc/11.2.202.468/install_flash_player_11_linux.x86_64.tar.gz
-#https://fpdownload.adobe.com/get/flashplayer/pdc/11.2.202.481/install_flash_player_11_linux.x86_64.tar.gz
 
 # make sure the package repository is up to date
 # and blindly upgrade all packages
