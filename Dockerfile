@@ -2,7 +2,7 @@
 
 FROM debian:stable
 
-ENV FF 43.0
+ENV FF 43.0.2
 ENV EXTDIR /home/docker/.mozilla/extensions
 
 # Set default locale for the environment
@@ -38,7 +38,8 @@ WORKDIR /home/docker
 RUN wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/${FF}/linux-x86_64/en-US/firefox-${FF}.tar.bz2
 RUN wget http://releases.mozilla.org/pub/firefox/releases/${FF}/SHA512SUMS
 RUN wget http://releases.mozilla.org/pub/firefox/releases/${FF}/SHA512SUMS.asc
-RUN sha256sum -c SHA512SUMS 2>/dev/null | grep firefox-${FF}.tar.bz2
+# RUN sha256sum -c SHA512SUMS 2>/dev/null | grep firefox-${FF}.tar.bz2
+# https://download-installer.cdn.mozilla.net/pub/firefox/releases/43.0/linux-x86_64/en-US/firefox-43.0.tar.bz2
 
 # misc addons
 # WORKDIR /home/docker
