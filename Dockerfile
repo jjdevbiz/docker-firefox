@@ -2,7 +2,7 @@
 
 FROM debian:stable
 
-ENV FF 43.0.2
+ENV FF 43.0.4
 ENV EXTDIR /home/docker/.mozilla/extensions
 
 # Set default locale for the environment
