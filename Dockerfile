@@ -1,8 +1,9 @@
 # Firefox over ssh X11Forwarding
 
-FROM debian:stable
+# FROM alpine:latest
+FROM debian:jessie
 
-ENV FF 43.0.4
+ENV FF 50.0
 ENV EXTDIR /home/docker/.mozilla/extensions
 
 # Set default locale for the environment
@@ -16,7 +17,7 @@ RUN apt-get update
 RUN apt-get upgrade -y -qq
 
 # install ssh and iceweasel
-RUN apt-get install -y openssh-server iceweasel
+RUN apt-get install -y openssh-server iceweasel libgtk-3-0
 
 # install pulseaudio to forward sound server to local session using paprefs
 RUN apt-get install -y pulseaudio

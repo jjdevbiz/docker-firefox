@@ -1,0 +1,34 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+  binary: /usr/bin/docker
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: true
+  roles_path: <%= ENV['CHEF_FACTOM_RP'] %>
+  data_bags_path: <%= ENV['CHEF_FACTOM_DBP'] %>
+  environments_path: <%= ENV['CHEF_FACTOM_EP'] %>
+  encrypted_data_bag_secret_key_path: <%= ENV['CHEF_FACTOM_EDBSKP'] %>
+
+# https://github.com/portertech/kitchen-docker/blob/master/.kitchen.yml
+
+platforms:
+  - name: alpine-3.3
+  - name: Dockerfile
+    driver:
+      username: docker
+      password: docker
+      dockerfile: Dockerfile
+      # run_command: /factomd/bin/factomd
+
+suites:
+  - name: default
+    provisioner:
+        client_rb:
+            environment: # production
+        solo_rb:
+            environment: # production
+    run_list:
+    attributes:
